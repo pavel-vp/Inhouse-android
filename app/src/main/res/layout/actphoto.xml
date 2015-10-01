@@ -1,0 +1,48 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mobileme.photolocator.gui.frgPhoto">
+
+
+    <SurfaceView
+        android:id="@+id/surface"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    </SurfaceView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Сфотографировать"
+        android:id="@+id/btnOk"
+        android:layout_gravity="right|bottom"
+        android:background="#40FFFFFF"
+        android:textSize="20dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#40FFFFFF"
+        android:text="Отмена"
+        android:id="@+id/btnCancel"
+        android:layout_gravity="left|bottom"
+        android:textSize="20dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/edComment"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="30dp"
+        android:background="#40FFFFFF"
+        android:visibility="invisible"
+        android:hint="Впишите сюда комментарий" />
+
+</FrameLayout>

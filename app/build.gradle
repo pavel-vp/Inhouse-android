@@ -3,9 +3,8 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
-
     defaultConfig {
-        applicationId "com.mobileme.inhouse_android"
+        applicationId 'com.mobileme.photolocator'
         minSdkVersion 9
         targetSdkVersion 21
         versionCode 1
@@ -17,9 +16,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile project(':library')
+    compile project(':swipelistview')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //    compile 'com.squareup.retrofit:converter-simplexml:2.0.0-beta1'
+    compile 'com.android.support:appcompat-v7:21.0.0'
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta1'
+    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta1'
+    compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta1'
+    compile 'com.android.support:support-v4:21.0.0'
+    compile 'com.google.android.gms:play-services:7.8.0'
 }

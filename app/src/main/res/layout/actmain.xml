@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <Button
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="Добавить фото"
+            android:id="@+id/btnPhoto" />
+
+        <com.fortysevendeg.swipelistview.SwipeListView
+            android:id="@+id/lvPhotoList"
+            android:listSelector="#00000000"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            swipe:swipeFrontView="@+id/front"
+            swipe:swipeBackView="@+id/back"
+            swipe:swipeCloseAllItemsWhenMoveList="true"
+            swipe:swipeMode="right"
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>
