@@ -99,11 +99,6 @@ public class actPhoto extends Activity implements SurfaceHolder.Callback, View.O
         updateState();
     }
 
-    @Override
-    public void onAutoFocus(boolean success, Camera camera) {
-        camera.takePicture(null, null, this);
-    }
-
     private Camera.Size getOptimalPreviewSize(List<Camera.Size> sizes, int w, int h) {
         final double ASPECT_TOLERANCE = 0.05;
         double targetRatio = (double) w/h;
@@ -205,6 +200,14 @@ public class actPhoto extends Activity implements SurfaceHolder.Callback, View.O
     }
 
     @Override
+    public void onAutoFocus(boolean success, Camera camera) {
+        if (mode == MODE_PREVIEW) {
+            mode = MODE_SHOOTING;
+            camera.takePicture(null, null, this);
+        }
+    }
+
+    @Override
     public void onPictureTaken(byte[] data, Camera camera) {
         if (data != null) {
             photoData = data.clone();
@@ -250,8 +253,12 @@ public class actPhoto extends Activity implements SurfaceHolder.Callback, View.O
         switch (mode) {
             case MODE_PREVIEW:
                 if (action == ACTION_OK) {
-                    mode = MODE_SHOOTING;
-                    camera.autoFocus(this);
+                    if (Camera.Parameters.FOCUS_MODE_AUTO.equals(camera.getParameters().getFocusMode())) {
+                        camera.autoFocus(this);
+                    } else {
+                        mode = MODE_SHOOTING;
+                        camera.takePicture(null, null, this);
+                    }
                 } else {
                         this.finish();
                 }
